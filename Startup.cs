@@ -30,10 +30,11 @@ namespace QuotesApi
             var connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuotesDB;";
             services.AddDbContext<DataContext>(options=>options.UseSqlServer(connection));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().AddXmlSerializerFormatters();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,DataContext quotesDbContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -46,7 +47,7 @@ namespace QuotesApi
             }
 
             //app.UseHttpsRedirection();
-            quotesDbContext.Database.EnsureCreated();
+            //quotesDbContext.Database.EnsureCreated();
             app.UseMvc();
         }
     }

@@ -21,6 +21,7 @@ namespace QuotesApi.Controllers
         }
 
         // GET: api/Quotes
+        // 返回的List经过asp.net pipeline转换成浏览器accept的格式发送出去，默认是json
         [HttpGet]
         public IActionResult Get()
         {
@@ -53,6 +54,7 @@ namespace QuotesApi.Controllers
             if(value!=null){
                 _quotesDbContext.Quotes.Add(value);
                 _quotesDbContext.SaveChanges();
+                // return Forbid();
                 return StatusCode(StatusCodes.Status201Created);
             }
             else{

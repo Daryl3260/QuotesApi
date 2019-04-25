@@ -11,10 +11,19 @@ namespace QuotesApi.Model
         public string Title { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
+
+        public string Type { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        // public string Country { get; set; }
         public void SetUp(Quote quote){
             Title = quote.Title;
             Author = quote.Author;
             Description = quote.Description;
+            Type = quote.Type;
+            CreatedAt = quote.CreatedAt;
+            // this.Country = Country;
         }
     }
 }
