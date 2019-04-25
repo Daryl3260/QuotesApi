@@ -1,0 +1,14 @@
+C:\Users\bigwh\source\repos\QuotesApi\bin\Debug\netcoreapp2.2\QuotesApi.deps.json
+C:\Users\bigwh\source\repos\QuotesApi\bin\Debug\netcoreapp2.2\QuotesApi.runtimeconfig.json
+C:\Users\bigwh\source\repos\QuotesApi\bin\Debug\netcoreapp2.2\QuotesApi.runtimeconfig.dev.json
+C:\Users\bigwh\source\repos\QuotesApi\bin\Debug\netcoreapp2.2\QuotesApi.dll
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.csprojAssemblyReference.cache
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.csproj.CoreCompileInputs.cache
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.RazorAssemblyInfo.cache
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.RazorAssemblyInfo.cs
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.AssemblyInfoInputs.cache
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.AssemblyInfo.cs
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.RazorTargetAssemblyInfo.cache
+C:\Users\bigwh\source\repos\QuotesApi\bin\Debug\netcoreapp2.2\QuotesApi.pdb
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.dll
+C:\Users\bigwh\source\repos\QuotesApi\obj\Debug\netcoreapp2.2\QuotesApi.pdb
