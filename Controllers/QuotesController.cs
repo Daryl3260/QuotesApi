@@ -43,6 +43,7 @@ namespace QuotesApi.Controllers
         public void Post([FromBody] Quote value)
         {
             _quotesDbContext.Quotes.Add(value);
+            _quotesDbContext.SaveChanges();
         }
 
         // PUT: api/Quotes/5
@@ -50,6 +51,11 @@ namespace QuotesApi.Controllers
         public void Put(int id, [FromBody] Quote value)
         {
             // _quotesDbContext.Quotes.
+            var entity = _quotesDbContext.Quotes.Find(id);
+            if(entity!=null&&value!=null){
+                entity.SetUp(value);
+            }
+            _quotesDbContext.SaveChanges();
         }
 
         // DELETE: api/ApiWithActions/5
@@ -59,6 +65,7 @@ namespace QuotesApi.Controllers
             var q = _quotesDbContext.Quotes.Find(id);
             if(q!=null){
                 _quotesDbContext.Quotes.Remove(q);
+                _quotesDbContext.SaveChanges();
             }
         }
     }
