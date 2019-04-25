@@ -15,7 +15,7 @@ namespace QuotesApi.Controllers
     {
         private DataContext _quotesDbContext;
 
-        public QuotesController(DataContext dataContext)//FIXME:什么时候调用的这个构造器？依赖注入，因为只有这一个构造器？
+        public QuotesController(DataContext dataContext)//FIXME:什么时候调用的这个构造器？依赖注入。因为只有这一个构造器？
         {
             _quotesDbContext = dataContext;
         }
@@ -26,13 +26,17 @@ namespace QuotesApi.Controllers
         {
             return _quotesDbContext.Quotes;
         }
+        [HttpGet("{id}")]
+        public Quote Get(int id){
+            return _quotesDbContext.Quotes.Find(id);
+        }
 
         // GET: api/Quotes/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        // [HttpGet("{id}", Name = "Get")]
+        // public string Get(int id)
+        // {
+        //     return "value";
+        // }
 
         // POST: api/Quotes
         [HttpPost]
