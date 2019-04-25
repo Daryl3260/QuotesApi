@@ -22,13 +22,21 @@ namespace QuotesApi.Controllers
 
         // GET: api/Quotes
         [HttpGet]
-        public IEnumerable<Quote> Get()
+        public IActionResult Get()
         {
-            return _quotesDbContext.Quotes;
+            // return _quotesDbContext.Quotes;
+            return Ok(_quotesDbContext.Quotes);
         }
         [HttpGet("{id}")]
-        public Quote Get(int id){
-            return _quotesDbContext.Quotes.Find(id);
+        public IActionResult Get(int id){
+            var entity = _quotesDbContext.Quotes.Find(id);
+            if(entity!=null){
+                return Ok(entity);//FIXME:常见的只有Ok和NotFound可以设置返回的消息字符串
+            }
+            else{
+                // return StatusCode(StatusCodes.Status404NotFound);
+                return NotFound($"Not found entity with id={id}");
+            }
         }
 
         // GET: api/Quotes/5
@@ -40,32 +48,52 @@ namespace QuotesApi.Controllers
 
         // POST: api/Quotes
         [HttpPost]
-        public void Post([FromBody] Quote value)
+        public IActionResult Post([FromBody] Quote value)//Id是autoincrement的，不能手动设置
         {
-            _quotesDbContext.Quotes.Add(value);
-            _quotesDbContext.SaveChanges();
+            if(value!=null){
+                _quotesDbContext.Quotes.Add(value);
+                _quotesDbContext.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created);
+            }
+            else{
+                // return StatusCode(StatusCodes.Status403Forbidden);
+                return Forbid();
+            }
+            
+
         }
 
         // PUT: api/Quotes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Quote value)
+        public IActionResult Put(int id, [FromBody] Quote value)
         {
             // _quotesDbContext.Quotes.
             var entity = _quotesDbContext.Quotes.Find(id);
             if(entity!=null&&value!=null){
                 entity.SetUp(value);
+                _quotesDbContext.SaveChanges();
+                return Accepted();
+                // return StatusCode(StatusCodes.Status202Accepted);
             }
-            _quotesDbContext.SaveChanges();
+            else{
+                if(entity==null)return NotFound($"Not found entity with id={id}");
+                else return Forbid();
+            }
+            
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             var q = _quotesDbContext.Quotes.Find(id);
             if(q!=null){
                 _quotesDbContext.Quotes.Remove(q);
                 _quotesDbContext.SaveChanges();
+                return Ok();
+            }
+            else{
+                return NotFound($"Not found entity with id={id}");
             }
         }
     }
