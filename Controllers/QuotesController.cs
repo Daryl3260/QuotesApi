@@ -40,20 +40,26 @@ namespace QuotesApi.Controllers
 
         // POST: api/Quotes
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Quote value)
         {
+            _quotesDbContext.Quotes.Add(value);
         }
 
         // PUT: api/Quotes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Quote value)
         {
+            // _quotesDbContext.Quotes.
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var q = _quotesDbContext.Quotes.Find(id);
+            if(q!=null){
+                _quotesDbContext.Quotes.Remove(q);
+            }
         }
     }
 }
