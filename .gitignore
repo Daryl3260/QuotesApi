@@ -347,4 +347,3 @@ deploy_key_rsa
 .vscode/
 bin/
 obj/
-.gitignore
