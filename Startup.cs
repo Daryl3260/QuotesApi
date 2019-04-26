@@ -27,8 +27,9 @@ namespace QuotesApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuotesDB;";
-            services.AddDbContext<DataContext>(options=>options.UseSqlServer(connection));
+            // var connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuotesDB;";
+            // services.AddDbContext<DataContext>(options=>options.UseSqlServer(connection));
+            services.AddDbContext<DataContext>(options => options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMvc().AddXmlSerializerFormatters();
         }

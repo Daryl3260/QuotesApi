@@ -2,8 +2,8 @@
 db.ini
 deploy_key_rsa
 .vscode/
-/obj/
-/bin/
+obj/
+bin/
 *.dll
 *.pdb
 *.cache
